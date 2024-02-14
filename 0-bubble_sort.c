@@ -1,6 +1,5 @@
 #include "sort.h"
 /**
-<<<<<<< HEAD
  * bubble_sort - bubble sort function
  * @array: the array to be sorted
  * @size: the size of the array to be sorted
@@ -14,7 +13,7 @@ void bubble_sort(int *array, size_t size)
 	int tmp;
 
 	if (array == NULL || size == 0)
-		printf("\n");
+		return;
 
 	while (sorted_flag != 1)
 	{
