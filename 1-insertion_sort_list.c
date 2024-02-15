@@ -1,8 +1,7 @@
 #include "sort.h"
 /**
-* insertion_sort_list - 
+* insertion_sort_list -
 */
-
 
 void insertion_sort_list(listint_t **list)
 {
@@ -23,7 +22,7 @@ while (copy != NULL && copy->next != NULL)
 if (copy->n > copy->next->n)
 {
 if (copy->prev != NULL)
-{	
+{
 node1 = copy;
 node2 = copy->next;
 node1->next = node2->next;
