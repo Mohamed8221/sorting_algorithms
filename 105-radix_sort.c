@@ -1,13 +1,10 @@
 #include "sort.h"
 /**
-<<<<<<< HEAD
-<<<<<<< HEAD
 * radix_counting_sort - counting sort function to match the radix sorting
 * @array: the array to be sorted
 * @size: the size of the array to be sorted
 * @exp: the power
-=======
-* 
+*
 */
 int count_digits(int num) {
 int count = 0;
@@ -16,7 +13,7 @@ num /= 10;
 count++;
 }
 return count;
-=======
+/**
  * count_digits - function to count the number of digits of the
  * bugest number in the array
  * @num: the larest number in the array
@@ -32,7 +29,6 @@ int count_digits(int num)
 		count++;
 	}
 	return (count);
->>>>>>> f4054e860c53ed2d3e77f1d24d81f92888edf0db
 }
 /**
 * radix_counting_sort - counting sort function to match the radix sorting
@@ -44,15 +40,12 @@ int count_digits(int num)
 
 void radix_counting_sort(int *array, size_t size, int exp)
 {
-<<<<<<< HEAD
 int count[10] = {0};
 int *output = malloc(sizeof(int) * size);
 size_t i;
-=======
 	int count[10] = {0};
 	size_t i;
 	int *output = malloc(sizeof(int) * size);
->>>>>>> f4054e860c53ed2d3e77f1d24d81f92888edf0db
 
 	if (output == NULL)
 		return;
@@ -60,14 +53,11 @@ size_t i;
 for (i = 0; i < size; i++)
 count[(array[i] / exp) % 10]++;
 
-<<<<<<< HEAD
 
 for (i = 1; i < 10; i++)
 count[i] += count[i - 1];
-=======
 	for (i = 1; i < 10; i++)
 		count[i] += count[i - 1];
->>>>>>> f4054e860c53ed2d3e77f1d24d81f92888edf0db
 
 for (i = size - 1; i < size; i--)
 {
@@ -91,13 +81,10 @@ int *copy_array(int *array, size_t size)
 int *array_copy;
 size_t i;
 
-<<<<<<< HEAD
 array_copy = malloc(sizeof(int) * size);
-=======
 	array_copy = malloc((sizeof(int) * size));
 	if (array_copy == NULL)
 		return (NULL);
->>>>>>> f4054e860c53ed2d3e77f1d24d81f92888edf0db
 
 for (i = 0; i < size; i++)
 {
@@ -113,12 +100,10 @@ return (array_copy);
 */
 void radix_sort(int *array, size_t size)
 {
-<<<<<<< HEAD
 float max;
 size_t i, no_of_digits = 0, all_same_number = 1, j;
 int *array_copy, *remainder_array, power = 1;
 
-<<<<<<< HEAD
 for (i = 0; i < size - 1; i++)
 {
 if (array[i] != array[i + 1])
@@ -151,7 +136,6 @@ power *= 10;
 }
 free(remainder_array);
 free(array_copy);
-=======
 for (i = 0; i < size - 1; i++)
 {
 if (array[i] != array[i + 1])
@@ -184,8 +168,6 @@ power *= 10;
 }
 free(remainder_array);
 free(array_copy);
->>>>>>> c3fcf8f7e53aa8b803ce4d28e54dd75993c820e5
-=======
 	size_t i, no_of_digits = 0, j;
 	int *array_copy, *remainder_array, power = 1, max;
 
@@ -215,5 +197,4 @@ free(array_copy);
 	}
 	free(remainder_array);
 	free(array_copy);
->>>>>>> f4054e860c53ed2d3e77f1d24d81f92888edf0db
 }
