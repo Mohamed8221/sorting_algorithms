@@ -26,8 +26,10 @@ int count_digits(int num)
 void radix_counting_sort(int *array, size_t size, int exp)
 {
 	int count[10] = {0};
-	int *output = malloc(sizeof(int) * size);
 	size_t i;
+	int *output = malloc(sizeof(int) * size);
+	if (output == NULL)
+		return;
 
 	for (i = 0; i < size; i++)
 		count[(array[i] / exp) % 10]++;
