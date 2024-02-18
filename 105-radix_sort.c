@@ -27,8 +27,8 @@ void radix_counting_sort(int *array, size_t size, int exp)
 {
 	int count[10] = {0};
 	size_t i;
-
 	int *output = malloc(sizeof(int) * size);
+
 	if (output == NULL)
 		return;
 
@@ -60,7 +60,7 @@ int *copy_array(int *array, size_t size)
 	int *array_copy;
 	size_t i;
 
-	array_copy = malloc(sizeof(int) * size);
+	array_copy = malloc((sizeof(int) * size));
 	if (array_copy == NULL)
 		return (NULL);
 
@@ -81,7 +81,7 @@ void radix_sort(int *array, size_t size)
 	size_t i, no_of_digits = 0, all_same_number = 1, j;
 	int *array_copy, *remainder_array, power = 1, max;
 
-	if (size == 1 || array == NULL || size == 0)
+	if (size < 2 || array == NULL)
 		return;
 	for (i = 0; i < size - 1; i++)
 	{
