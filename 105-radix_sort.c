@@ -54,6 +54,9 @@ int *copy_array(int *array, size_t size)
 	size_t i;
 
 	array_copy = malloc(sizeof(int) * size);
+	if (array_copy == NULL)
+		return;
+	
 
 	for (i = 0; i < size; i++)
 	{
@@ -72,6 +75,10 @@ void radix_sort(int *array, size_t size)
 	float max;
 	size_t i, no_of_digits = 0, all_same_number = 1, j;
 	int *array_copy, *remainder_array, power = 1;
+	int length = sizeof(array) / sizeof(array[0]);
+
+	if (length == 1)
+		return;
 
 	for (i = 0; i < size - 1; i++)
 	{
@@ -95,7 +102,14 @@ void radix_sort(int *array, size_t size)
 	no_of_digits = count_digits(max);
 
 	array_copy = copy_array(array, size);
+	if (array_copy == NULL)
+		return;
 	remainder_array = malloc(sizeof(int) * size);
+	if (remainder_array == NULL)
+	{
+		free(array_copy);
+		return;
+	}
 
 	for (j = 0; j < no_of_digits; j++)
 	{
