@@ -45,7 +45,7 @@ print_array(array, size);
 }
 
 /**
-* hoare_quicksort - Recursive function to sort an array using quicksort
+* hoare_quicksort - Recursive function
 * @array: Array to sort
 * @low: Starting index of the array
 * @high: Ending index of the array
@@ -64,7 +64,7 @@ hoare_quicksort(array, pi + 1, high, size);
 }
 
 /**
-* quick_sort_hoare - Quick sort algorithm using Hoare partition scheme
+* quick_sort_hoare - Quick sort algorithm
 * @array: Array to sort
 * @size: Size of the array
 */
