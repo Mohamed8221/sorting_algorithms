@@ -9,11 +9,12 @@ int count_digits(int num)
 {
 	int count = 0;
 
-	while (num != 0) {
+	while (num != 0)
+	{
 		num /= 10;
 		count++;
 	}
-	return count;
+	return (count);
 }
 /**
  * radix_counting_sort - counting sort function to match the radix sorting
@@ -74,34 +75,28 @@ int *copy_array(int *array, size_t size)
 */
 void radix_sort(int *array, size_t size)
 {
-	float max;
 	size_t i, no_of_digits = 0, all_same_number = 1, j;
-	int *array_copy, *remainder_array, power = 1;
+	int *array_copy, *remainder_array, power = 1, max;
 
 	if (size == 1)
 		return;
-
 	for (i = 0; i < size - 1; i++)
 	{
 		if (array[i] != array[i + 1])
 			all_same_number = 0;
 	}
-
 	if (all_same_number == 1) /* the array is all the same enumber */
 	{
 		print_array(array, size);
 		return;
 	}
-
 	max = array[0];
 	for (i = 1; i < size; i++)
 	{
 		if (array[i] > max)
 			max = array[i];
 	}
-
 	no_of_digits = count_digits(max);
-
 	array_copy = copy_array(array, size);
 	if (array_copy == NULL)
 		return;
@@ -111,7 +106,6 @@ void radix_sort(int *array, size_t size)
 		free(array_copy);
 		return;
 	}
-
 	for (j = 0; j < no_of_digits; j++)
 	{
 		radix_counting_sort(array, size, power);
