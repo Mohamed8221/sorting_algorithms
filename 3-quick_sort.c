@@ -8,13 +8,13 @@
 * @size: size of the array
 * Return: index for the pivot
 */
-int partition(int *array, int low, int high, size_t size)
+int parti_tion(int *array, int l, int h, size_t size)
 {
-int pivot = array[high];
-int i = (low - 1);
+int pivot = array[h];
+int i = (l - 1);
 int j, temp;
 
-for (j = low; j <= high - 1; j++)
+for (j = l; j <= h - 1; j++)
 {
 if (array[j] < pivot)
 {
@@ -28,11 +28,11 @@ print_array(array, size);
 }
 }
 }
-if (array[i + 1] != array[high])
+if (array[i + 1] != array[h])
 {
 temp = array[i + 1];
-array[i + 1] = array[high];
-array[high] = temp;
+array[i + 1] = array[h];
+array[h] = temp;
 print_array(array, size);
 }
 return (i + 1);
@@ -45,14 +45,14 @@ return (i + 1);
 * @high: ending index
 * @size: size of the array
 */
-void quick_sort_helper(int *array, int low, int high, size_t size)
+void quick_sort_helper(int *array, int l, int h, size_t size)
 {
-if (low < high)
+if (l < h)
 {
-int pi = partition(array, low, high, size);
+int pi = parti_tion(array, l, h, size);
 
-quick_sort_helper(array, low, pi - 1, size);
-quick_sort_helper(array, pi + 1, high, size);
+quick_sort_helper(array, l, pi - 1, size);
+quick_sort_helper(array, pi + 1, h, size);
 }
 }
 
