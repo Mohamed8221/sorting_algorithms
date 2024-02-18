@@ -53,7 +53,7 @@ print_array(array, size);
 */
 void hoare_quicksort(int *array, int low, int high, size_t size)
 {
-int pi;
+ssize_t pi = 0;
 if (low < high)
 {
 pi = hoare_partition(array, low, high, size);
