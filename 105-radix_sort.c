@@ -1,5 +1,16 @@
 #include "sort.h"
 /**
+ * 
+*/
+int count_digits(int num) {
+    int count = 0;
+    while (num != 0) {
+        num /= 10;
+        count++;
+    }
+    return count;
+}
+/**
  * radix_counting_sort - counting sort function to match the radix sorting
  * @array: the array to be sorted
  * @size: the size of the array to be sorted
@@ -81,7 +92,7 @@ void radix_sort(int *array, size_t size)
 			max = array[i];
 	}
 
-	no_of_digits = log10(max) + 1; /* number of digits */
+	no_of_digits = count_digits(max);
 
 	array_copy = copy_array(array, size);
 	remainder_array = malloc(sizeof(int) * size);
