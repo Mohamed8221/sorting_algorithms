@@ -83,16 +83,18 @@ void radix_sort(int *array, size_t size)
 
 	if (size < 2 || array == NULL)
 		return;
+	/*
 	for (i = 0; i < size - 1; i++)
 	{
 		if (array[i] != array[i + 1])
 			all_same_number = 0;
 	}
-	if (all_same_number == 1) /* the array is all the same enumber */
+	if (all_same_number == 1) 
 	{
 		print_array(array, size);
 		return;
 	}
+	*/
 	max = array[0];
 	for (i = 1; i < size; i++)
 	{
