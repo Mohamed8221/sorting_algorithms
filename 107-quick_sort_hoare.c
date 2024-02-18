@@ -22,7 +22,7 @@ int t = *a;
 */
 int hoare_partition(int *array, int low, int high, size_t size)
 {
-int pivot = array[high];
+int pivot = array[low];
 int i = low - 1;
 int j = high + 1;
 
@@ -53,12 +53,12 @@ print_array(array, size);
 */
 void hoare_quicksort(int *array, int low, int high, size_t size)
 {
-int pi;
+int pi ;
 if (low < high)
 {
 pi = hoare_partition(array, low, high, size);
 
-hoare_quicksort(array, low, pi - 1, size);
+hoare_quicksort(array, low, pi, size);
 hoare_quicksort(array, pi + 1, high, size);
 }
 }
