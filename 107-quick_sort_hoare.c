@@ -1,6 +1,18 @@
 #include "sort.h"
 
 /**
+* swap - Swaps two integers
+* @a: first integer
+* @b: second integer
+*/
+void swap(int *a, int *b)
+{
+int t = *a;
+*a = *b;
+*b = t;
+}
+
+/**
 * hoare_partition - Hoare partition scheme for quicksort
 * @array: Array to partition
 * @low: Starting index
@@ -13,7 +25,6 @@ int hoare_partition(int *array, int low, int high, size_t size)
 int pivot = array[low];
 int i = low - 1;
 int j = high + 1;
-int temp;
 
 while (1)
 {
@@ -28,9 +39,7 @@ j--;
 if (i >= j)
 return (j);
 
-temp = array[i];
-array[i] = array[j];
-array[j] = temp;
+swap(&array[i], &array[j]);
 print_array(array, size);
 }
 }
@@ -49,9 +58,8 @@ if (low < high)
 {
 pi = hoare_partition(array, low, high, size);
 
-if (pi > low)
-hoare_quicksort(array, low, pi - 1, size);
-if (pi < high)
+
+hoare_quicksort(array, low, pi, size);
 hoare_quicksort(array, pi + 1, high, size);
 }
 }
