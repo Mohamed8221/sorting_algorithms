@@ -6,36 +6,38 @@
 * @exp: the power
 *
 */
-int count_digits(int num) {
+int count_digits(int num)
+{
 int count = 0;
-while (num != 0) {
+while (num != 0)
+{
 num /= 10;
 count++;
+return (count);
 }
-return count;
+
 /**
- * count_digits - function to count the number of digits of the
- * bugest number in the array
- * @num: the larest number in the array
- * Return: the number of the digits in the max num in array
+* count_digits - function to count the number of digits of the
+* bugest number in the array
+* @num: the larest number in the array
+* Return: the number of the digits in the max num in array
 */
 int count_digits(int num)
 {
-	int count = 0;
+int count = 0;
 
-	while (num != 0)
-	{
-		num /= 10;
-		count++;
-	}
-	return (count);
+while (num != 0)
+{
+num /= 10;
+count++;
+}
+return (count);
 }
 /**
 * radix_counting_sort - counting sort function to match the radix sorting
 * @array: the array to be sorted
 * @size: the size of the array to be sorted
 * @exp: the power
->>>>>>> c3fcf8f7e53aa8b803ce4d28e54dd75993c820e5
 */
 
 void radix_counting_sort(int *array, size_t size, int exp)
@@ -43,12 +45,12 @@ void radix_counting_sort(int *array, size_t size, int exp)
 int count[10] = {0};
 int *output = malloc(sizeof(int) * size);
 size_t i;
-	int count[10] = {0};
-	size_t i;
-	int *output = malloc(sizeof(int) * size);
+int count[10] = {0};
+size_t i;
+int *output = malloc(sizeof(int) * size);
 
-	if (output == NULL)
-		return;
+if (output == NULL)
+return;
 
 for (i = 0; i < size; i++)
 count[(array[i] / exp) % 10]++;
@@ -56,8 +58,8 @@ count[(array[i] / exp) % 10]++;
 
 for (i = 1; i < 10; i++)
 count[i] += count[i - 1];
-	for (i = 1; i < 10; i++)
-		count[i] += count[i - 1];
+for (i = 1; i < 10; i++)
+count[i] += count[i - 1];
 
 for (i = size - 1; i < size; i--)
 {
@@ -82,9 +84,9 @@ int *array_copy;
 size_t i;
 
 array_copy = malloc(sizeof(int) * size);
-	array_copy = malloc((sizeof(int) * size));
-	if (array_copy == NULL)
-		return (NULL);
+array_copy = malloc((sizeof(int) * size));
+if (array_copy == NULL)
+return (NULL);
 
 for (i = 0; i < size; i++)
 {
@@ -168,33 +170,33 @@ power *= 10;
 }
 free(remainder_array);
 free(array_copy);
-	size_t i, no_of_digits = 0, j;
-	int *array_copy, *remainder_array, power = 1, max;
+size_t i, no_of_digits = 0, j;
+int *array_copy, *remainder_array, power = 1, max;
 
-	if (size < 2 || array == NULL)
-		return;
-	max = array[0];
-	for (i = 1; i < size; i++)
-	{
-		if (array[i] > max)
-			max = array[i];
-	}
-	no_of_digits = count_digits(max);
-	array_copy = copy_array(array, size);
-	if (array_copy == NULL)
-		return;
-	remainder_array = malloc(sizeof(int) * size);
-	if (remainder_array == NULL)
-	{
-		free(array_copy);
-		return;
-	}
-	for (j = 0; j < no_of_digits; j++)
-	{
-		radix_counting_sort(array, size, power);
-		print_array(array, size);
-		power *= 10;
-	}
-	free(remainder_array);
-	free(array_copy);
+if (size < 2 || array == NULL)
+return;
+max = array[0];
+for (i = 1; i < size; i++)
+{
+if (array[i] > max)
+max = array[i];
+}
+no_of_digits = count_digits(max);
+array_copy = copy_array(array, size);
+if (array_copy == NULL)
+return;
+remainder_array = malloc(sizeof(int) * size);
+if (remainder_array == NULL)
+{
+free(array_copy);
+return;
+}
+for (j = 0; j < no_of_digits; j++)
+{
+radix_counting_sort(array, size, power);
+print_array(array, size);
+power *= 10;
+}
+free(remainder_array);
+free(array_copy);
 }

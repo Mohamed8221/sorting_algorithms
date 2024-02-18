@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
-* hoare_partition - Hoare partition scheme
+* hoare_partition - Hoare partition scheme for quicksort
 * @array: Array to partition
 * @low: Starting index
 * @high: Ending index
@@ -36,7 +36,7 @@ print_array(array, size);
 }
 
 /**
-* hoare_quicksort - Recursive function
+* hoare_quicksort - Recursive function to sort an array using quicksort
 * @array: Array to sort
 * @low: Starting index of the array
 * @high: Ending index of the array
@@ -45,18 +45,19 @@ print_array(array, size);
 void hoare_quicksort(int *array, int low, int high, size_t size)
 {
 int pi;
-
 if (low < high)
 {
 pi = hoare_partition(array, low, high, size);
 
-hoare_quicksort(array, low, pi, size);
+if (pi > low)
+hoare_quicksort(array, low, pi - 1, size);
+if (pi < high)
 hoare_quicksort(array, pi + 1, high, size);
 }
 }
 
 /**
-* quick_sort_hoare - Quick sort algorithm
+* quick_sort_hoare - Quick sort algorithm using Hoare partition scheme
 * @array: Array to sort
 * @size: Size of the array
 */
