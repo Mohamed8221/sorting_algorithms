@@ -3,7 +3,6 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <math.h>
 
 /**
 * struct listint_s - Doubly linked list node
@@ -39,4 +38,7 @@ void quick_sort_helper(int *array, int l, int h, size_t size);
 void radix_counting_sort(int *array, size_t size, int exp);
 int *copy_array(int *array, size_t size);
 int count_digits(int num);
+int hoare_partition(int *array, int low, int high, size_t size);
+void hoare_quicksort(int *array, int low, int high, size_t size);
+
 #endif
