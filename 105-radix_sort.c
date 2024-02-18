@@ -78,23 +78,11 @@ int *copy_array(int *array, size_t size)
 */
 void radix_sort(int *array, size_t size)
 {
-	size_t i, no_of_digits = 0, /*all_same_number = 1,*/ j;
+	size_t i, no_of_digits = 0, j;
 	int *array_copy, *remainder_array, power = 1, max;
 
 	if (size < 2 || array == NULL)
 		return;
-	/*
-	for (i = 0; i < size - 1; i++)
-	{
-		if (array[i] != array[i + 1])
-			all_same_number = 0;
-	}
-	if (all_same_number == 1) 
-	{
-		print_array(array, size);
-		return;
-	}
-	*/
 	max = array[0];
 	for (i = 1; i < size; i++)
 	{
