@@ -27,6 +27,7 @@ void radix_counting_sort(int *array, size_t size, int exp)
 {
 	int count[10] = {0};
 	size_t i;
+
 	int *output = malloc(sizeof(int) * size);
 	if (output == NULL)
 		return;
@@ -89,7 +90,7 @@ void radix_sort(int *array, size_t size)
 	}
 	if (all_same_number == 1) /* the array is all the same enumber */
 	{
-		print_array(array, size);
+		/* print_array(array, size); */
 		return;
 	}
 	max = array[0];
