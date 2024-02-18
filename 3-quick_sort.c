@@ -1,10 +1,10 @@
 #include "sort.h"
 
 /**
-* partition - partitions array
+* parti_tion - partitions array
 * @array: array to sort
-* @low: starting index
-* @high: ending index
+* @l: starting index
+* @h: ending index
 * @size: size of the array
 * Return: index for the pivot
 */
@@ -41,8 +41,8 @@ return (i + 1);
 /**
 * quick_sort_helper - helper function for quick_sort
 * @array: array to sort
-* @low: starting index
-* @high: ending index
+* @l: starting index
+* @h: ending index
 * @size: size of the array
 */
 void quick_sort_helper(int *array, int l, int h, size_t size)
