@@ -99,8 +99,8 @@ void radix_sort(int *array, size_t size)
 
 	for (j = 0; j < no_of_digits; j++)
 	{
-		radix_counting_sort(array_copy, size, power);
-		print_array(array_copy, size);
+		radix_counting_sort(array, size, power);
+		print_array(array, size);
 		power *= 10;
 	}
 	free(remainder_array);
