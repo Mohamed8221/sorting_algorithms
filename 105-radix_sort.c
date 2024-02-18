@@ -79,7 +79,10 @@ void radix_sort(int *array, size_t size)
 	int *array_copy, *remainder_array, power = 1, max;
 
 	if (size == 1)
+	{
+		print_array(array, size);
 		return;
+	}
 	for (i = 0; i < size - 1; i++)
 	{
 		if (array[i] != array[i + 1])
