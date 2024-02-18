@@ -78,7 +78,7 @@ int *copy_array(int *array, size_t size)
 */
 void radix_sort(int *array, size_t size)
 {
-	size_t i, no_of_digits = 0, all_same_number = 1, j;
+	size_t i, no_of_digits = 0, /*all_same_number = 1,*/ j;
 	int *array_copy, *remainder_array, power = 1, max;
 
 	if (size < 2 || array == NULL)
