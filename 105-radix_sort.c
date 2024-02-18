@@ -78,8 +78,8 @@ int *copy_array(int *array, size_t size)
 */
 void radix_sort(int *array, size_t size)
 {
-	size_t i, no_of_digits = 0, all_same_number = 1, j;
-	int *array_copy, *remainder_array, power = 1, max;
+	size_t i, no_of_digits = 0, all_same_number = 1, j, k;
+	int *array_copy, *remainder_array, power = 1, max, *unsorted , *sorted;
 
 	if (size < 2 || array == NULL)
 		return;
@@ -111,10 +111,21 @@ void radix_sort(int *array, size_t size)
 	}
 	for (j = 0; j < no_of_digits; j++)
 	{
+		unsorted = copy_array(array, size);
 		radix_counting_sort(array, size, power);
-		print_array(array, size);
+		sorted = copy_array(array, size);
+		for (k = 0; k < size; k++)
+		{
+			if (unsorted[k] != sorted[k])
+			{
+				print_array(array, size);
+				break;
+			}
+		}
 		power *= 10;
 	}
+	free(sorted);
+	free(unsorted);
 	free(remainder_array);
 	free(array_copy);
 }
