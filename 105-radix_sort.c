@@ -1,14 +1,19 @@
 #include "sort.h"
 /**
- * 
+ * count_digits - function to count the number of digits of the
+ * bugest number in the array
+ * @num: the larest number in the array
+ * Return: the number of the digits in the max num in array
 */
-int count_digits(int num) {
-    int count = 0;
-    while (num != 0) {
-        num /= 10;
-        count++;
-    }
-    return count;
+int count_digits(int num)
+{
+	int count = 0;
+
+	while (num != 0) {
+		num /= 10;
+		count++;
+	}
+	return count;
 }
 /**
  * radix_counting_sort - counting sort function to match the radix sorting
@@ -23,10 +28,8 @@ void radix_counting_sort(int *array, size_t size, int exp)
 	int *output = malloc(sizeof(int) * size);
 	size_t i;
 
-
 	for (i = 0; i < size; i++)
 		count[(array[i] / exp) % 10]++;
-
 
 	for (i = 1; i < 10; i++)
 		count[i] += count[i - 1];
@@ -56,7 +59,6 @@ int *copy_array(int *array, size_t size)
 	array_copy = malloc(sizeof(int) * size);
 	if (array_copy == NULL)
 		return (NULL);
-	
 
 	for (i = 0; i < size; i++)
 	{
