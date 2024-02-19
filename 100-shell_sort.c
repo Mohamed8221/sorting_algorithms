@@ -3,10 +3,10 @@
 /**
 * swap - Swaps the positions of two elements in an array
 * @array: The array
-* @item1: Index of the first item
-* @item2: Index of the second item
+* @h: Index of the first item
+* @l: Index of the second item
 */
-void swap(int *array, ssize_t h, ssize_t l)
+void swap(int *array, int h, int l)
 {
 int temp;
 
