@@ -1,12 +1,12 @@
 #include "sort.h"
 
 /**
-* swap - Swaps the positions of two elements in an array
+* swap_shell - Swaps the positions of two elements in an array
 * @array: The array
 * @h: Index of the first item
 * @l: Index of the second item
 */
-void swap(int *array, int h, int l)
+void swap_shell(int *array, int h, int l)
 {
 int temp;
 
@@ -43,7 +43,7 @@ temp = array[i];
 /* Shift elements to make room for the current element */
 for (j = i; j >= interval && array[j - interval] > temp; j -= interval)
 {
-swap(array, j, j - interval);
+swap_shell(array, j, j - interval);
 }
 }
 
