@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
-* parti_tion - partitions array
+* par - partitions array
 * @array: array to sort
 * @l: starting index
 * @h: ending index
