@@ -1,18 +1,18 @@
 #include "sort.h"
 
 /**
-* parti_tion - partitions array
+* partition_array_qs - partitions array
 * @array: array to sort
 * @l: starting index
 * @h: ending index
 * @size: size of the array
 * Return: index for the pivot
 */
-int parti_tion(int *array, int l, int h, size_t size)
+int partition_array_qs(int *array, int l, int h, size_t size)
 {
 int pivot = array[h];
 int i = (l - 1);
-int j, temp;
+int j, tmp;
 
 for (j = l; j <= h - 1; j++)
 {
@@ -21,18 +21,18 @@ if (array[j] < pivot)
 i++;
 if (i != j)
 {
-temp = array[i];
+tmp = array[i];
 array[i] = array[j];
-array[j] = temp;
+array[j] = tmp;
 print_array(array, size);
 }
 }
 }
 if (array[i + 1] != array[h])
 {
-temp = array[i + 1];
+tmp = array[i + 1];
 array[i + 1] = array[h];
-array[h] = temp;
+array[h] = tmp;
 print_array(array, size);
 }
 return (i + 1);
@@ -45,14 +45,14 @@ return (i + 1);
 * @h: ending index
 * @size: size of the array
 */
-void quick_sort_helper(int *array, int l, int h, size_t size)
+void quick_sort_helper(int *array, int start, int end, size_t size)
 {
-if (l < h)
+if (start < end)
 {
-int pi = parti_tion(array, l, h, size);
+int partitioned = partition_array_qs(array, start, end, size);
 
-quick_sort_helper(array, l, pi - 1, size);
-quick_sort_helper(array, pi + 1, h, size);
+quick_sort_helper(array, start, partitioned - 1, size);
+quick_sort_helper(array, partitioned + 1, end, size);
 }
 }
 

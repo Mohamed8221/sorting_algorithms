@@ -20,38 +20,71 @@ void swap_nodes(listint_t **node1, listint_t **node2)
 void cocktail_sort_list(listint_t **list)
 {
     size_t sorted_flag = 0, swaped = 0;
-    listint_t *node1, *node2, *list_copy;
+    listint_t *node1, *node2, *list_copy_start = *list, *list_copy_end;
 
+    if (*list == NULL || list == NULL || (*list)->next == NULL)
+        return;
+    
     while (sorted_flag != 1)
     {
         swaped = 0;
-        list_copy = *list;
-        while ((*list)->next != NULL)
+
+        /* forward iteratoin */
+        while (list_copy_start->next != NULL)
         {
-            if ((*list)->n > (*list)->next->n)
+            if (list_copy_start->n > list_copy_start->next->n)
             {
-                node1 = *list_copy.n;
-                node2 = (*list)->next;
-                swap_nodes(&node1, &node2);
-                swaped = 1;
+                node1 = list_copy_start;
+                node2 = list_copy_start->next;
+                if (list_copy_start->prev == NULL)
+                {
+                    swap_nodes(&node1, &node2);
+                    *list = node2;
+                    list_copy_start = node2;
+                }
+                else
+                {
+                    swap_nodes(&node1, &node2);
+                    /* it will be moved to next at end of the while loop , that's why it is not node1*/
+                    list_copy_start = node2;
+                }
+                /* swaped = 1; */
                 print_list(*list);
+                swaped = 1;
             }
-            *list = (*list)->next;
+            list_copy_start = list_copy_start->next;
         }
-        while ((*list)->prev != NULL)
+        /*move to the last node of the list */
+        list_copy_end = *list;
+        while (list_copy_end->next != NULL)
         {
-            if ((*list)->n < (*list)->prev->n)
+            list_copy_end = list_copy_end->next; /* until it reaches last node */
+        }
+        /* backward iteration */
+        while (list_copy_end->prev != NULL)
+        {
+            if (list_copy_end->n < list_copy_end->prev->n)
             {
-                node1 = *list;
-                node2 = (*list)->prev;
-                swap_nodes(&node1, &node2);
-                swaped = 1;
+                node1 = list_copy_end->prev;
+                node2 = list_copy_end;
+                if (list_copy_end->prev->prev == NULL)
+                {
+                    swap_nodes(&node1, &node2);
+                    list_copy_end = node1;
+                    *list = node2;
+                }
+                else
+                {
+                    swap_nodes(&node1, &node2);
+                    list_copy_end = node1;
+                }
                 print_list(*list);
+                swaped = 1;
             }
-            *list = (*list)->prev;
+            list_copy_end = list_copy_end->prev;
         }
 
-        if (swaped == 0)
-            sorted_flag =1;
-    }  
+            if (swaped == 0)
+                sorted_flag = 1;
+    }
 }

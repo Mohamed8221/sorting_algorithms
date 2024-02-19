@@ -1,57 +1,56 @@
 #include "sort.h"
 
 /**
-* heapify - Transforms array into a heap
-* @array: The array to be sorted
-* @size: Size of the heap
-* @i: Root index
-* @total_size: Size of the array
+* transform_to_heap - Converts array into a heap
+* @arr: The array to be sorted
+* @heap_size: Size of the heap
+* @root: Root index
+* @arr_size: Size of the array
 */
-void heapify(int *array, size_t size, int i, size_t total_size)
+void transform_to_heap(int *arr, size_t heap_size, int root, size_t arr_size)
 {
-int largest = i, tmp;
-int left = 2 * i + 1;
-int right = 2 * i + 2;
+int max = root, temp;
+int left_node = 2 * root + 1;
+int right_node = 2 * root + 2;
 
-if (left < (int)size && array[left] > array[largest])
-largest = left;
+if (left_node < (int)heap_size && arr[left_node] > arr[max])
+max = left_node;
 
-if (right < (int)size && array[right] > array[largest])
-largest = right;
+if (right_node < (int)heap_size && arr[right_node] > arr[max])
+max = right_node;
 
-if (largest != i)
+if (max != root)
 {
-tmp = array[i];
-array[i] = array[largest];
-array[largest] = tmp;
-print_array(array, total_size);
-heapify(array, size, largest, total_size);
+temp = arr[root];
+arr[root] = arr[max];
+arr[max] = temp;
+print_array(arr, arr_size);
+transform_to_heap(arr, heap_size, max, arr_size);
 }
 }
 
 /**
-* heap_sort - Sorts an array of integers in ascending order
-*             using the Heap sort algorithm
+* heap_sort - Sorts an array of integers
 * @array: The array to be sorted
 * @size: Size of the array
 */
 void heap_sort(int *array, size_t size)
 {
-int i, tmp;
+int i, temp;
 
 if (!array || size < 2)
 return;
 
 for (i = size / 2 - 1; i >= 0; i--)
-heapify(array, size, i, size);
+transform_to_heap(array, size, i, size);
 
 for (i = size - 1; i >= 0; i--)
 {
-tmp = array[0];
+temp = array[0];
 array[0] = array[i];
-array[i] = tmp;
+array[i] = temp;
 if (i != 0)
 print_array(array, size);
-heapify(array, i, 0, size);
+transform_to_heap(array, i, 0, size);
 }
 }

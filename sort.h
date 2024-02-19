@@ -33,13 +33,15 @@ void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
 void quick_sort_hoare(int *array, size_t size);
-int parti_tion(int *array, int l, int h, size_t size);
+int par(int *array, int l, int h, size_t size);
 void quick_sort_helper(int *array, int l, int h, size_t size);
 void radix_counting_sort(int *array, size_t size, int exp);
 int *copy_array(int *array, size_t size);
 int count_digits(int num);
-int hoare_partition(int *array, int low, int high, size_t size);
-void hoare_quicksort(int *array, int low, int high, size_t size);
-void swap(int *a, int *b);
+void swap(int *array, ssize_t h, ssize_t l);
+int h_par(int *array, int ft, int lt, int size);
+void QSorter(int *array, ssize_t ft, ssize_t lt, int size);
+void swap_nodes(listint_t **node1, listint_t **node2);
+void transform_to_heap(int *arr, size_t heap_size, int root, size_t arr_size);
 
 #endif
