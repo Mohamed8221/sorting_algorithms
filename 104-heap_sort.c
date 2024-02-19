@@ -7,7 +7,8 @@
 * @root: Root index
 * @arr_size: Size of the array
 */
-void transform_to_heap(int *arr, size_t heap_size, int root, size_t arr_size)
+void transform_to_heap(int *arr, size_t heap_size,
+                        int root, size_t arr_size)
 {
 int max = root, temp;
 int left_child = 2 * root + 1;
