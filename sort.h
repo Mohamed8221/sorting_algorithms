@@ -40,5 +40,6 @@ int *copy_array(int *array, size_t size);
 int count_digits(int num);
 int hoare_partition(int *array, int low, int high, size_t size);
 void hoare_quicksort(int *array, int low, int high, size_t size);
+void swap(int *a, int *b);
 
 #endif
