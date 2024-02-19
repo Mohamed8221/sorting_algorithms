@@ -30,9 +30,8 @@ transform_to_heap(arr, heap_size, max, arr_size);
 }
 
 /**
-* heap_sort_algorithm - Sorts an array of integers in ascending order
-*                       using the Heap sort algorithm
-* @arr: The array to be sorted
+* heap_sort - Sorts an array of integers
+* @array: The array to be sorted
 * @size: Size of the array
 */
 void heap_sort(int *array, size_t size)
