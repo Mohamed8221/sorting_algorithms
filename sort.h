@@ -41,5 +41,6 @@ int count_digits(int num);
 void swap(int *array, ssize_t item1, ssize_t item2)
 int hoare_partition(int *array, int first, int last, int size)
 void qs(int *array, ssize_t first, ssize_t last, int size)
+void swap_nodes(listint_t **node1, listint_t **node2);
 
 #endif
