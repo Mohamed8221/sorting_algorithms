@@ -38,9 +38,10 @@ void quick_sort_helper(int *array, int l, int h, size_t size);
 void radix_counting_sort(int *array, size_t size, int exp);
 int *copy_array(int *array, size_t size);
 int count_digits(int num);
-void swap(int *array, ssize_t item1, ssize_t item2);
-int hoare_partition(int *array, int first, int last, int size);
-void qs(int *array, ssize_t first, ssize_t last, int size);
+void swap(int *array, ssize_t h, ssize_t l);
+int h_par(int *array, int ft, int lt, int size);
+void QSorter(int *array, ssize_t ft, ssize_t lt, int size);
 void swap_nodes(listint_t **node1, listint_t **node2);
+void transform_to_heap(int *arr, size_t heap_size, int root, size_t arr_size);
 
 #endif

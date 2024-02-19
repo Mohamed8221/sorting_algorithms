@@ -2,61 +2,61 @@
 /**
 *swap - the positions of two elements into an array
 *@array: array
-*@item1: array element
-*@item2: array element
+*@h: array element
+*@l: array element
 */
-void swap(int *array, ssize_t item1, ssize_t item2)
+void swap(int *array, ssize_t h, ssize_t l)
 {
 	int tmp;
 
-	tmp = array[item1];
-	array[item1] = array[item2];
-	array[item2] = tmp;
+	tmp = array[h];
+	array[h] = array[l];
+	array[l] = tmp;
 }
 /**
- *hoare_partition - hoare partition sorting scheme implementation
+ *h_par - hoare partition sorting
  *@array: array
- *@first: first array element
- *@last: last array element
+ *@ft: first array element
+ *@lt: last array element
  *@size: size array
- *Return: return the position of the last element sorted
+ *Return: return the place of the last element sorted
  */
-int hoare_partition(int *array, int first, int last, int size)
+int h_par(int *array, int ft, int lt, int size)
 {
-	int current = first - 1, finder = last + 1;
-	int pivot = array[last];
+	int here = ft - 1, finder = lt + 1;
+	int pivot = array[lt];
 
 	while (1)
 	{
 
 		do {
-			current++;
-		} while (array[current] < pivot);
+			here++;
+		} while (array[here] < pivot);
 		do {
 			finder--;
 		} while (array[finder] > pivot);
-		if (current >= finder)
-			return (current);
-		swap(array, current, finder);
+		if (here >= finder)
+			return (here);
+		swap(array, here, finder);
 		print_array(array, size);
 	}
 }
 /**
- *qs - qucksort algorithm implementation
+ *QSorter - qucksort algorithm implementation
  *@array: array
- *@first: first array element
- *@last: last array element
+ *@ft: first array element
+ *@lt: last array element
  *@size: array size
  */
-void qs(int *array, ssize_t first, ssize_t last, int size)
+void QSorter(int *array, ssize_t ft, ssize_t lt, int size)
 {
-	ssize_t position = 0;
+	ssize_t p = 0;
 
-	if (first < last)
+	if (ft < lt)
 	{
-		position = hoare_partition(array, first, last, size);
-		qs(array, first, position - 1, size);
-		qs(array, position, last, size);
+		p = h_par(array, ft, lt, size);
+		QSorter(array, ft, p - 1, size);
+		QSorter(array, p, lt, size);
 	}
 }
 /**
@@ -68,5 +68,5 @@ void quick_sort_hoare(int *array, size_t size)
 {
 	if (!array || size < 2)
 		return;
-	qs(array, 0, size - 1, size);
+	QSorter(array, 0, size - 1, size);
 }
