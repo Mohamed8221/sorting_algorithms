@@ -33,7 +33,7 @@ void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
 void quick_sort_hoare(int *array, size_t size);
-int parti_tion(int *array, int l, int h, size_t size);
+int par(int *array, int l, int h, size_t size);
 void quick_sort_helper(int *array, int l, int h, size_t size);
 void radix_counting_sort(int *array, size_t size, int exp);
 int *copy_array(int *array, size_t size);
