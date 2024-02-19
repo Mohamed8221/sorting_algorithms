@@ -22,7 +22,7 @@ void swap_nodes(listint_t **node1, listint_t **node2)
 void insertion_sort_list(listint_t **list)
 {
 	int sorted_flag = 0, swaped;
-	listint_t *copy = *list, /*prev_node_copy , *next_node_copy*/ *node1, *node2;
+	listint_t *copy = *list, *node1, *node2;
 
 	if (*list == NULL || list == NULL)
 		return;
