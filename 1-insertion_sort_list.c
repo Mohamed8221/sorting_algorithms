@@ -25,7 +25,7 @@ void insertion_sort_list(listint_t **list)
 	listint_t *copy = *list, /*prev_node_copy , *next_node_copy*/ *node1, *node2;
 
 	if (*list == NULL || list == NULL)
-	return;
+		return;
 	if ((*list) != NULL && (*list)->next == NULL)
 		return;
 	while (sorted_flag != 1)
