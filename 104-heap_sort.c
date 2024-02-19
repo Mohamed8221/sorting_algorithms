@@ -35,23 +35,23 @@ transform_to_heap(arr, heap_size, max, arr_size);
 * @arr: The array to be sorted
 * @size: Size of the array
 */
-void heap_sort_algorithm(int *arr, size_t size)
+void heap_sort(int *array, size_t size)
 {
 int i, temp;
 
-if (!arr || size < 2)
+if (!array || size < 2)
 return;
 
 for (i = size / 2 - 1; i >= 0; i--)
-transform_to_heap(arr, size, i, size);
+transform_to_heap(array, size, i, size);
 
 for (i = size - 1; i >= 0; i--)
 {
-temp = arr[0];
-arr[0] = arr[i];
-arr[i] = temp;
+temp = array[0];
+array[0] = array[i];
+array[i] = temp;
 if (i != 0)
-print_array(arr, size);
-transform_to_heap(arr, i, 0, size);
+print_array(array, size);
+transform_to_heap(array, i, 0, size);
 }
 }
