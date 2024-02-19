@@ -1,43 +1,46 @@
 #include "sort.h"
 
 /**
-* shell_sort - Sorts an array of integers
-* @array: The array to be sorted
-* @size: The size of the array
+* shell_sort - sorts an array of integers in ascending order
+*              using the Shell sort algorithm
+* @array: array to sort
+* @size: size of the array
 */
 void shell_sort(int *array, size_t size)
 {
+size_t gap = 1;
+size_t i, j;
 int temp;
-size_t i, j, interval = 1;
 
-/* Compute initial interval (gap) */
-while (interval < size / 3)
+/* Calculate gap using Knuth sequence */
+while (gap < size / 3)
 {
-interval = interval * 3 + 1;
+gap = gap * 3 + 1;
 }
 
-/* Perform the Shell sort */
-while (interval > 0)
+/* Start with the largest gap and work down to a gap of 1 */
+while (gap > 0)
 {
-for (i = interval; i < size; i++)
+/* Do a gapped insertion sort for this gap size */
+for (i = gap; i < size; i++)
 {
-/* Extract the element to be inserted */
+/* Save array[i] in temp and make a hole at position i */
 temp = array[i];
 
-/* Shift elements to make room */
-for (j = i; j >= interval && array[j - interval] > temp; j -= interval)
+/* Shift earlier gap-sorted elements up until the correct location for array[i] is found */
+for (j = i; j >= gap && array[j - gap] > temp; j -= gap)
 {
-array[j] = array[j - interval];
+array[j] = array[j - gap];
 }
 
-/* Insert the current element into the correct position */
+/* Put temp (the original array[i]) in its correct location */
 array[j] = temp;
 }
 
-/* Reduce the interval for the next iteration of the Shell sort */
-interval /= 3;
+/* Decrease gap */
+gap /= 3;
 
-/* Print the array after each interval reduction */
+/* Print the array each time you decrease the interval */
 print_array(array, size);
 }
 }
