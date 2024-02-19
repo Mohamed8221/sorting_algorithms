@@ -27,6 +27,9 @@ int temp;
 size_t i, j, interval = 1;
 
 /* Compute initial interval (gap) */
+if (array == NULL || size < 2)
+return;
+
 while (interval < size / 3)
 {
 interval = interval * 3 + 1;
