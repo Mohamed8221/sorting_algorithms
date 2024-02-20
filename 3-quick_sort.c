@@ -41,8 +41,8 @@ return (i + 1);
 /**
 * quick_sort_helper - helper function for quick_sort
 * @array: array to sort
-* @l: starting index
-* @h: ending index
+* @start: starting index
+* @end: ending index
 * @size: size of the array
 */
 void quick_sort_helper(int *array, int start, int end, size_t size)
