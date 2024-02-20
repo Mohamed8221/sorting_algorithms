@@ -1,14 +1,14 @@
 #include "sort.h"
 
 /**
-* par - partitions array
+* partition_array_qs - partitions array
 * @array: array to sort
 * @l: starting index
 * @h: ending index
 * @size: size of the array
 * Return: index for the pivot
 */
-int par(int *array, int l, int h, size_t size)
+int partition_array_qs(int *array, int l, int h, size_t size)
 {
 int pivot = array[h];
 int i = (l - 1);
@@ -45,14 +45,14 @@ return (i + 1);
 * @h: ending index
 * @size: size of the array
 */
-void quick_sort_helper(int *array, int l, int h, size_t size)
+void quick_sort_helper(int *array, int start, int end, size_t size)
 {
-if (l < h)
+if (start < end)
 {
-int pi = par(array, l, h, size);
+int partitioned = partition_array_qs(array, start, end, size);
 
-quick_sort_helper(array, l, pi - 1, size);
-quick_sort_helper(array, pi + 1, h, size);
+quick_sort_helper(array, start, partitioned - 1, size);
+quick_sort_helper(array, partitioned + 1, end, size);
 }
 }
 

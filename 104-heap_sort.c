@@ -10,14 +10,14 @@
 void transform_to_heap(int *arr, size_t heap_size, int root, size_t arr_size)
 {
 int max = root, temp;
-int left_child = 2 * root + 1;
-int right_child = 2 * root + 2;
+int left_node = 2 * root + 1;
+int right_node = 2 * root + 2;
 
-if (left_child < (int)heap_size && arr[left_child] > arr[max])
-max = left_child;
+if (left_node < (int)heap_size && arr[left_node] > arr[max])
+max = left_node;
 
-if (right_child < (int)heap_size && arr[right_child] > arr[max])
-max = right_child;
+if (right_node < (int)heap_size && arr[right_node] > arr[max])
+max = right_node;
 
 if (max != root)
 {

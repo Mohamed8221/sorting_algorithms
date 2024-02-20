@@ -24,10 +24,9 @@ void insertion_sort_list(listint_t **list)
 	int sorted_flag = 0, swaped;
 	listint_t *copy = *list, *node1, *node2;
 
-	if (*list == NULL || list == NULL)
+	if (*list == NULL || list == NULL || (*list)->next == NULL)
 		return;
-	if ((*list) != NULL && (*list)->next == NULL)
-		return;
+
 	while (sorted_flag != 1)
 	{
 		swaped = 0;
@@ -36,23 +35,23 @@ void insertion_sort_list(listint_t **list)
 		{
 			if (copy->n > copy->next->n)
 			{
-			if (copy->prev != NULL)
-			{
-				node1 = copy;
-				node2 = copy->next;
-				swap_nodes(&node1, &node2);
-			}
-			else
-			{
-				node1 = copy;
-				node2 = copy->next;
-				swap_nodes(&node1, &node2);
-				*list = node2;
-				copy = node2;
-			}
-			swaped = 1;
-			print_list(*list);
-			break;
+				if (copy->prev != NULL)
+				{
+					node1 = copy;
+					node2 = copy->next;
+					swap_nodes(&node1, &node2);
+				}
+				else
+				{
+					node1 = copy;
+					node2 = copy->next;
+					swap_nodes(&node1, &node2);
+					*list = node2;
+					copy = node2;
+				}
+				swaped = 1;
+				print_list(*list);
+				break;
 			}
 			copy = copy->next;
 		}
