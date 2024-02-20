@@ -44,5 +44,7 @@ void QSorter(int *array, ssize_t ft, ssize_t lt, int size);
 void swap_nodes(listint_t **node1, listint_t **node2);
 void transform_to_heap(int *arr, size_t heap_size, int root, size_t arr_size);
 void swap_shell(int *array, int h, int l);
+void merge(int *array, int *temp, int start, int mid, int end);
+void merge_sort_helper(int *array, int *temp, int start, int end);
 
 #endif
